@@ -1,34 +1,27 @@
-//Bubble Sort
-#include<iostream>
+#include <iostrean> 
 using namespace std;
-
-void bubble(int a[10]){
-for(int j=0;j<10;j++){
-    for(int k=j+1;k<9;k++){
-     if(a[k]<a[j]){
-        a[k]=a[k]+a[j];
-        a[j]=a[k]-a[j];
-        a[k]=a[k]-a[j];
-        }
-        }
+void swap(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
 }
+void bubbleSort(int arr[], int n) 
+{ 
+   int i, j; 
+   for (i = 0; i < n-1; i++)          
+       for (j = 0; j < n-i-1; j++)  
+           if (arr[j] > arr[j+1]) 
+              swap(&arr[j], &arr[j+1]); 
 }
-
-
-int main(){
-
-int arr[10];
-cout<<"Enter the array"<<endl;
-for(int i=0;i<10;i++)
-    {
-        cin>>arr[i];
-    }
-bubble(arr);
-
-for(int i=0;i<10;i++)
-    {
-        cout<<arr[i]<<endl;
-    }
-
-return 0;
-}
+int main() 
+{ 
+    int n;cin>>n;
+    int arr[n];
+    bubbleSort(arr, n); 
+    printf("Sorted array: \n"); 
+    int i; 
+    for (i=0; i < size; i++) 
+        cout<<arr[i])<<" ";
+    return 0; 
+} 
